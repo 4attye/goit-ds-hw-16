@@ -1,15 +1,10 @@
 import  streamlit as st
 import numpy as np
-import tensorflow as tf
 from PIL import Image, ImageOps
 from keras.models import load_model
-from keras.datasets import fashion_mnist
-from keras.utils import to_categorical
 from keras.preprocessing.image import img_to_array
 import matplotlib.pyplot as plt
 import pickle
-
-(_, _), (x_test, y_test) = fashion_mnist.load_data()
 
 model_CNN = load_model('CNN.keras')
 model_VGG16 = load_model('VGG16.keras')
