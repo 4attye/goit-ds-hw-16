@@ -53,12 +53,6 @@ if uploaded_file is not None:
         for i, pred in enumerate(preds[0]):
             st.write(f"{fashion_classes[i]}: {pred:.4f}")
 
-        with open('history_CNN.pkl', 'rb') as f:
-            history = pickle.load(f)
-
-        plot_history(history)
-
-
     elif column == 'VGG16':
         resized_image = image.resize((32, 32))
         st.image(resized_image, caption='зображення 32x32', use_container_width=True)
@@ -72,9 +66,14 @@ if uploaded_file is not None:
         for i, pred in enumerate(preds[0]):
             st.write(f"{fashion_classes[i]}: {pred:.4f}")
 
-        with open('history_VGG16.pkl', 'rb') as f:
-            history = pickle.load(f)
+if column == 'CNN':
+    with open('history_CNN.pkl', 'rb') as f:
+        history = pickle.load(f)
 
-        plot_history(history)
+    plot_history(history)
 
+elif column == 'VGG16':
+    with open('history_VGG16.pkl', 'rb') as f:
+        history = pickle.load(f)
 
+    plot_history(history)
