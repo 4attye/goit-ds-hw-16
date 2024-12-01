@@ -15,10 +15,7 @@ st.title("Класифікація зображень за допомогою н
 
 uploaded_file = st.file_uploader("Виберіть зображення...", type=["jpg", "jpeg", "png"])
 
-fashion_classes = [
-    'T-shirt/top', 'Trouser', 'Pullover', 'Dress', 'Coat', 'Sandal',
-    'Shirt', 'Sneaker', 'Bag', 'Ankle boot'
-]
+fashion_classes = ['T-shirt/top', 'Trouser', 'Pullover', 'Dress', 'Coat', 'Sandal','Shirt', 'Sneaker', 'Bag', 'Ankle boot']
 
 def plot_history(hst):
 
@@ -69,11 +66,9 @@ if uploaded_file is not None:
 if column == 'CNN':
     with open('history_CNN.pkl', 'rb') as f:
         history = pickle.load(f)
-
     plot_history(history)
 
 elif column == 'VGG16':
     with open('history_VGG16.pkl', 'rb') as f:
         history = pickle.load(f)
-
     plot_history(history)
